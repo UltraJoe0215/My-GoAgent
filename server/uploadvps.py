@@ -46,7 +46,7 @@ def upload(host, username, password):
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.MissingHostKeyPolicy())
     logging.info('connect %s', host)
-    client.connect(host, 22, username, password)
+    client.connect(host, 2222, username, password)
     client.exec_command('mkdir -p /opt/goagent/{vps,log}')
     logging.info('open sftp...')
     sftp = client.open_sftp()
