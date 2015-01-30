@@ -841,7 +841,9 @@ class PHPProxyHandler(SimpleProxyHandler):
                        'strip': StripPlugin(),}
 
     def __init__(self, *args, **kwargs):
-        SimpleProxyHandler.__init__(self, *args, **kwargs)
+        #SimpleProxyHandler.__init__(self, *args, **kwargs)
+		ProxyConnectionMixin.__init__(self, common.PROXY_HOST, common.PROXY_PORT, common.PROXY_USERNAME, common.PROXY_PASSWROD)
+		PHPProxyHandler.__init__(self, *args, **kwargs)
 
     def first_run(self):
         """PHPProxyHandler setup, init domain/iplist map"""
